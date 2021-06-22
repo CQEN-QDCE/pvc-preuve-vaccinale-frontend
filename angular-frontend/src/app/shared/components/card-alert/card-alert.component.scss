@@ -1,0 +1,64 @@
+@import 'palette';
+@import 'bootstrap/bootstrap-imports';
+
+@mixin alert-type($border-font-color, $footer-bg-color, $footer-font-color) {
+  border-left-color: $border-font-color;
+
+  .mat-card-footer {
+    background-color: $footer-bg-color;
+    border-top-color: $border-font-color;
+    color: $footer-font-color;
+  }
+}
+
+.card-alert {
+  border-left-width: 8px;
+  border-left-style: solid;
+  margin-bottom: 2rem;
+
+  .mat-card-avatar {
+    padding-left: 2px;
+    padding-top: 1px;
+    height: 60px;
+    width: 60px;
+
+    .mat-icon {
+      color: lighten(theme-palette(blue), 5%);
+      font-size: 3.5rem;
+    }
+  }
+
+  .mat-card-title {
+    color: lighten(theme-palette(blue), 5%);
+    font-size: 2.25rem;
+  }
+
+  .mat-card-subtitle {
+    margin-bottom: .9rem;
+  }
+
+  .mat-card-footer {
+    border-top-width: 1px;
+    border-top-style: solid;
+    padding: 1rem 1.2rem;
+
+    .mat-icon {
+      font-size: 1.75rem;
+      // Slight adjustment to the icon position relative to
+      // the notification message
+      padding-top: .3rem;
+    }
+  }
+
+  $types: info blue, success green, warn yellow, danger red;
+
+  @each $type, $color in $types {
+    &.card-alert-#{$type} {
+      @include alert-type(
+        rgba(theme-palette($color), .75),
+        rgba(theme-palette($color), .08),
+        theme-palette($color)
+      );
+    }
+  }
+}

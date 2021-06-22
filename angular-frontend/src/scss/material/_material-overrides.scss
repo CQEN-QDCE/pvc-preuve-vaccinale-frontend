@@ -1,0 +1,59 @@
+
+@import '../bootstrap/bootstrap-variables';
+//
+// MATERIAL OVERRIDES
+//
+
+// NOTE: Used to fix issues OR augment Material components
+// that are not theme related
+
+// Remove all outlines from all elements.  This is very aggressive! and should
+// be removed once supported by Angular Material.
+* {
+  outline: none !important;
+}
+
+//
+// Forms
+//
+
+.mat-form-field {
+  // Provide a bit more spacing under form fields so error
+  // messages are not resting on underlying field labels
+  margin-bottom: .5rem;
+
+  &.mat-form-field-type-mat-input .mat-form-field-infix {
+    // Input placeholders are not properly centered
+    // vertically when appearance is outlined
+    border-top-width: .5rem;
+  }
+
+  &.mat-form-field-type-mat-select {
+    option {
+      color: white;
+    }
+
+    .mat-form-field-infix {
+      // Select options not properly centered
+      // vertically when appearance is outlined
+      border-top-width: .5rem;
+    }
+
+    .mat-select-arrow-wrapper {
+      // Readjust the down select chevron to
+      // compensate for centering the options
+      padding-top: .5rem;
+    }
+
+    .mat-form-field-outline-start,
+    .mat-form-field-outline-gap,
+    .mat-form-field-outline-end {
+      background-color: lighten(theme-palette(blue, darkest), 20%);
+    }
+
+    .mat-select-min-line,
+    .mat-select-arrow {
+      color: white;
+    }
+  }
+}

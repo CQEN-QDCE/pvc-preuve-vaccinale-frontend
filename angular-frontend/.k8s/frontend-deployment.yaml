@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: D:\usr\local\bin\kompose.exe convert -o ./.k8s/
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: frontend
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: D:\usr\local\bin\kompose.exe convert -o ./.k8s/
+        kompose.version: 1.21.0 (992df58d8)
+      creationTimestamp: null
+      labels:
+        io.kompose.service: frontend
+    spec:
+      containers:
+      - env:
+        - name: CONTAINER
+          value: "true"
+        - name: NODE_ENV
+          value: production
+        image: node-service-jumpstart
+        imagePullPolicy: ""
+        name: node-service-jumpstart
+        ports:
+        - containerPort: 4200
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}

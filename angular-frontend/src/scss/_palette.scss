@@ -1,0 +1,46 @@
+//
+// Theme Colours
+//
+
+//
+// Colour Palettes
+//
+
+$palettes: (
+  blue: (
+    lightest: #d6ddec,
+    lighter: #7ca7f4,
+    light: #0f48ae,
+    base: #003366,
+    dark: #001b4a,
+    darkest: #252f3f
+  ),
+  yellow: (
+    base: #ffb200
+  ),
+  red: (
+    lighter: #f5c6cb,
+    light: #f8d7da,
+    base: #ed202a,
+    dark: #721c24
+  ),
+  green: (
+    base: #81b214
+  ),
+  grey: (
+    lightest: #eeeeee,
+    lighter: #e1e1e1,
+    light: #bdbdbd,
+    base: #575757,
+    dark: #212121
+  )
+);
+
+//
+// Palette Mapping Extractor
+// Gets the colour and tone from the theme palette.
+// @use theme-palette( colour, tone );
+//
+@function theme-palette($palette, $tone: 'base') {
+  @return map-get(map-get($palettes, $palette), $tone);
+}

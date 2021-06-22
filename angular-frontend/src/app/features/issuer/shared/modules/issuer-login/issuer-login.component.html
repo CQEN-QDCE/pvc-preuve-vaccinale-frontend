@@ -1,0 +1,89 @@
+<div class="wrapper"
+     *transloco="let t">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-12 col-lg-6 col-xl-7">
+        <div class="position">
+          <mat-icon>qr_code_scanner</mat-icon>
+        </div>
+        <section>
+          <h1>
+            {{ t('appTitle') }}
+            <div>
+              {{ t('appSubTitle') }}
+            </div>
+          </h1>
+
+          <p>
+            {{ t('appDescription') }}
+          </p>
+        </section>
+      </div>
+      <div class="col-sm-12 col-lg-6 col-xl-5">
+
+        <mat-card>
+
+          <mat-card-content>
+
+            <h1>
+              {{ t('loginTitle') }}
+            </h1>
+            <p>
+              {{ t('loginInstructions') }}
+            </p>
+
+            <form (ngSubmit)="onSubmit()"
+                  [formGroup]="form"
+                  novalidate
+                  autocomplete="off">
+
+              <div class="field">
+                <mat-form-field appearance="outline"
+                                color="accent"
+                                class="w-100">
+                  <input matInput
+                         [placeholder]="t('emailLabel')"
+                         formControlName="email">
+                  <mat-error *ngIf="email.hasError('required')">{{ t('requiredValidation') }}</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="field">
+                <mat-form-field appearance="outline"
+                                color="accent"
+                                class="w-100">
+                  <input matInput
+                         type="password"
+                         [placeholder]="t('passwordLabel')"
+                         formControlName="password">
+                  <mat-error *ngIf="password.hasError('required')">{{ t('requiredValidation') }}</mat-error>
+                </mat-form-field>
+              </div>
+
+              <button mat-flat-button
+                      color="primary"
+                      size="large">{{ t('loginButtonLabel') }}</button>
+            </form>
+
+          </mat-card-content>
+
+          <mat-card-footer>
+
+            <p>
+              {{ t('agreementMessage') }} <a href="#">{{ t('termOfServiceLabel') }}</a> {{ t('and') }}
+              <a href="#">{{ t('dataPolicyLabel') }}</a>.
+            </p>
+
+          </mat-card-footer>
+
+        </mat-card>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<app-page-footer></app-page-footer>

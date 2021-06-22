@@ -1,0 +1,16 @@
+@import 'palette';
+@import 'bootstrap/bootstrap-imports';
+
+//
+// MATERIAL CARD
+//
+// @description
+// Applies general theme styles to Material Card components, as well as, an
+// action icon to the upper right of the card, but is not opinionated on
+// responsiveness of the container dimensions or typography of the
+// content, which can be enforced at the component-level.
+
+// TODO should be properly themed, but in a pinch this is sufficient
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: theme-palette(blue, lighter);
+}
