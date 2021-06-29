@@ -16,15 +16,15 @@
 
 ## Pull une image dans le docker registry
 
-- Mon usager: `juliozohar`
+- Mon usager: `user`
 
 - Nom de l'image que je veux puller: `pvc-frontend`
 
 ```
 $ docker login
 
-$ docker tag pvc-frontend:latest juliozohar/pvc-frontend:latest 
+$ docker tag pvc-frontend:latest user/pvc-frontend:latest 
 
-$ docker push juliozohar/pvc-frontend:latest 
+$ docker push user/pvc-frontend:latest 
 ```
 
